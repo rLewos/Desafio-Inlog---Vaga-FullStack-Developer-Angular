@@ -21,7 +21,7 @@ public class VeiculoController : ControllerBase
     [HttpPost("Cadastrar")]
     public async Task<IActionResult> Cadastrar([FromBody] object dadosDoVeiculo)
     {
-        Veiculo veiculo = null;
+        Veiculo veiculo = null; // TROCAR DTO
         await _veiculoService.Cadastrar(veiculo);
 
         return Ok();
