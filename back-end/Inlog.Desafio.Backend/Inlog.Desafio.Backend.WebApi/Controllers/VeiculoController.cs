@@ -1,3 +1,5 @@
+using Inlog.Desafio.Backend.Application.Services;
+using Inlog.Desafio.Backend.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Inlog.Desafio.Backend.WebApi.Controllers;
@@ -7,16 +9,20 @@ namespace Inlog.Desafio.Backend.WebApi.Controllers;
 public class VeiculoController : ControllerBase
 {
     private readonly ILogger<VeiculoController> _logger;
+    private readonly IVeiculoService _veiculoService;
 
-    public VeiculoController(ILogger<VeiculoController> logger)
+    public VeiculoController(ILogger<VeiculoController> logger, IVeiculoService veiculoService)
     {
         _logger = logger;
-    }
+		_veiculoService = veiculoService;
+
+	}
 
     [HttpPost("Cadastrar")]
     public async Task<IActionResult> Cadastrar([FromBody] object dadosDoVeiculo)
     {
-        // TODO: Cadastrar um veiculo em memoria ou banco de dados
+        Veiculo veiculo = null;
+        await _veiculoService.Cadastrar(veiculo);
 
         return Ok();
     }
@@ -24,9 +30,8 @@ public class VeiculoController : ControllerBase
     [HttpGet("Listar")]
     public async Task<IActionResult> ListarVeiculosAsync()
     {
-        // TODO: retornar todos veiculos 
-
-        return Ok();
+        IList<Veiculo> veiculoList = await _veiculoService.Listar();
+        return Ok(veiculoList); // trocar para DTO
     }
 }
 

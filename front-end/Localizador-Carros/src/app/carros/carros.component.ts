@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
-import { CarrosService } from '../../services/carros.service';
+import { NovoComponent } from './novo/novo.component';
+import { ListarComponent } from './listar/listar.component';
 
 @Component({
   selector: 'app-carros',
+  standalone: true,
+  imports: [ListarComponent],
   templateUrl: './carros.component.html',
   styleUrl: './carros.component.css',
 })
