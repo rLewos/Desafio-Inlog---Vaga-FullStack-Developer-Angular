@@ -27,6 +27,14 @@ builder.Services.AddDbContext<VeiculoContext>(o => o.UseNpgsql(connectionString)
 builder.Services.AddScoped<IVeiculoService, VeiculoService>();
 builder.Services.AddScoped<IVeiculoRepository, VeiculoRepository>();
 
+builder.Services.AddCors(options =>
+{
+	options.AddPolicy("AllowOrigin",
+		builder => builder.WithOrigins("http://localhost:4200")
+						  .AllowAnyMethod()
+						  .AllowAnyHeader());
+});
+
 
 var app = builder.Build();
 
@@ -36,6 +44,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseCors("AllowOrigin");
 
 app.UseHttpsRedirection();
 

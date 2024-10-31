@@ -10,13 +10,13 @@
     </tr>
   </thead>
   <tbody>
-    @for(carro of carrosList; track carro.license_plate){
+    @for(carro of carrosList; track carro.codigo){
     <tr>
-      <td>{{ carro.license_plate }}</td>
-      <td>2</td>
-      <td>3</td>
-      <td>3</td>
-      <td>4</td>
+      <td>{{ carro.identificador }}</td>
+      <td>{{ carro.placa }}</td>
+      <td>{{ carro.numeroRastreio }}</td>
+      <td>{{ carro.latitude }}</td>
+      <td>{{ carro.longitude }}</td>
       <td>-</td>
     </tr>
     }

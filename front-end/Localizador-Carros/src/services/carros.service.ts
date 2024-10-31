@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Carro } from '../models/Carro';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({ providedIn: 'root' })
 export class CarrosService {
+  URL: string = 'https://localhost:7222';
+
   constructor(private http: HttpClient) {}
   getCarrosList() {
     return [
@@ -26,6 +28,10 @@ export class CarrosService {
         },
       },
     ];
+  }
+
+  getCarrosListv2() {
+    return this.http.get(this.URL + '/Veiculo/Listar');
   }
 
   saveCarro(carro: Carro) {}
