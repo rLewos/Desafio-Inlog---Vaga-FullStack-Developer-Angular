@@ -1,3 +1,4 @@
+using Inlog.Desafio.Backend.Application.Mappers;
 using Inlog.Desafio.Backend.Application.Services;
 using Inlog.Desafio.Backend.Domain.Repositories;
 using Inlog.Desafio.Backend.Infra.Database;
@@ -13,6 +14,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddAutoMapper(typeof(VeiculoVeiculoDTO));
 
 string? connectionString = builder.Configuration.GetConnectionString("Default");
 if (string.IsNullOrEmpty(connectionString))
