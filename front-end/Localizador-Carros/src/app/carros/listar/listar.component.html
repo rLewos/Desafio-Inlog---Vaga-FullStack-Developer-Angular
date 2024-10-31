@@ -1,5 +1,4 @@
-<p>listar works!</p>
-<table class="table">
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Identificador</th>
@@ -11,13 +10,15 @@
     </tr>
   </thead>
   <tbody>
+    @for(carro of carrosList; track carro.license_plate){
     <tr>
-      <td>1</td>
+      <td>{{ carro.license_plate }}</td>
       <td>2</td>
       <td>3</td>
       <td>3</td>
       <td>4</td>
       <td>-</td>
     </tr>
+    }
   </tbody>
 </table>

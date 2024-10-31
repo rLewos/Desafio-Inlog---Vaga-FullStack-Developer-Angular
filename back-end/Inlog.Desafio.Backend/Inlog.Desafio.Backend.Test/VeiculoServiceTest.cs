@@ -4,13 +4,14 @@ using Xunit;
 
 namespace Inlog.Desafio.Backend.Test
 {
+
 	public class VeiculoServiceTest
 	{
         private readonly IVeiculoService _veiculoService;
 
         public VeiculoServiceTest()
         {
-            this._veiculoService = ServiceFactory.GetService<IVeiculoService>();
+            _veiculoService = ServiceFactory.GetService<IVeiculoService>();
         }
 
         [Fact]
@@ -19,7 +20,8 @@ namespace Inlog.Desafio.Backend.Test
             // Arrange
             Veiculo veiculo = new Veiculo()
             {
-                Cor = "Azul",
+				Chassi = "BNNv2",
+				Cor = "Azul",
                 Identificador = "Veiculo 1",
                 Placa = "AAA-9A99",
 				NumeroRastreio = "A0000000",
@@ -32,7 +34,9 @@ namespace Inlog.Desafio.Backend.Test
             await _veiculoService.Cadastrar(veiculo);
 
 			// Asset
-            Veiculo veiculoRetorno = new Veiculo();
+			var list = await _veiculoService.Listar();
+			Veiculo veiculoRetorno = list.FirstOrDefault(x => x.Codigo == veiculo.Codigo);
+
 			Assert.Equal(veiculo.Codigo, veiculoRetorno.Codigo);
         }
 

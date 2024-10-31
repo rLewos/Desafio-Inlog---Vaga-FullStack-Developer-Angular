@@ -25,20 +25,6 @@ public class VeiculoController : ControllerBase
     [HttpPost("Cadastrar")]
     public async Task<IActionResult> Cadastrar([FromBody] VeiculoDTO veiculoDTO)
     {
-		//VeiculoDTO dto = new VeiculoDTO()
-		//{
-		//	Cor = "Azul",
-		//	TipoVeiculo = TipoVeiculo.Caminhao,
-		//	Chassi = "BNN",
-
-
-		//	Identificador = "Veiculo 1",
-		//	Placa = "AAA-9A99",
-		//	NumeroRastreio = "A0000000",
-		//	Longitude = "-25.43247",
-		//	Latitude = "-49.27845",
-		//}; 
-
 		Veiculo veiculo = _mapper.Map<Veiculo>(veiculoDTO);
 		await _veiculoService.Cadastrar(veiculo);
 

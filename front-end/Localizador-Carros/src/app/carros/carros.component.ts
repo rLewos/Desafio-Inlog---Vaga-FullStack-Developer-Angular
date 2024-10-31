@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NovoComponent } from './novo/novo.component';
 import { ListarComponent } from './listar/listar.component';
+import { CarrosService } from '../../services/carros.service';
 
 @Component({
   selector: 'app-carros',
@@ -10,9 +11,5 @@ import { ListarComponent } from './listar/listar.component';
   styleUrl: './carros.component.css',
 })
 export class CarrosComponent {
-  constructor() {}
-
-  listAllCars() {
-    console.log('Click listAllCars');
-  }
+  constructor(private carrosService: CarrosService) {}
 }
