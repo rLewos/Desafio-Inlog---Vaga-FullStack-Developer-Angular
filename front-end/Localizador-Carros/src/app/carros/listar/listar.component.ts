@@ -19,7 +19,7 @@ export class ListarComponent {
 
   loadTodosVeiculos() {
     console.log('loadTodosVeiculos');
-    //this.carrosList = this.carrosService.getCarrosList();
+
     this.carrosService.getCarrosListv2().subscribe((response) => {
       console.log(response);
       this.carrosList = response;

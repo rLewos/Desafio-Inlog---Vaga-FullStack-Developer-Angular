@@ -34,5 +34,9 @@ export class CarrosService {
     return this.http.get(this.URL + '/Veiculo/Listar');
   }
 
-  saveCarro(carro: Carro) {}
+  saveCarro(carro: Carro) {
+    this.http.post(this.URL + '/Veiculo/Cadastrar', carro).subscribe((res) => {
+      console.log(res);
+    });
+  }
 }
