@@ -31,10 +31,10 @@ export class CarrosService {
   }
 
   getCarrosListv2() {
-    return this.http.get(this.URL + '/Veiculo/Listar');
+    return this.http.get<Carro[]>(this.URL + '/Veiculo/Listar');
   }
 
-  saveCarro(carro: Carro) {
+  saveCarro(carro: any) {
     this.http.post(this.URL + '/Veiculo/Cadastrar', carro).subscribe((res) => {
       console.log(res);
     });

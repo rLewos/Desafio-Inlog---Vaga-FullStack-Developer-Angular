@@ -39,13 +39,16 @@ export class CarrosComponent {
 
     this.carrosService.getCarrosListv2().subscribe((res) => {
       console.log(res);
-    });
 
-    this.addMarcadorMapa(-23.533773, -46.62529);
-    this.addMarcadorMapa(-23.605338, -46.608961);
+      res.forEach((e) => {
+        this.addMarcadorMapa(e.latitude, e.longitude);
+      });
+    });
   }
 
-  addMarcadorMapa(cLongitude: number, cLatitude: number) {
-    L.marker([cLongitude, cLatitude]).addTo(this.map);
+  addMarcadorMapa(cLongitude: string, cLatitude: string) {
+    const longitude = parseFloat(cLongitude);
+    const latitude = parseFloat(cLatitude);
+    L.marker([longitude, latitude]).addTo(this.map);
   }
 }

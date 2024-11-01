@@ -1,7 +1,20 @@
+<br />
 <h1>Localização de Veiculos</h1>
-<div id="map"></div>
 
-<a class="btn btn-success" routerLink="/carros/novo" href="/carros/novo">
-  + Novo</a
->
-<app-listar></app-listar>
+<fieldset>
+  <legend>Mapa</legend>
+  <div class="row">
+    <div class="col-md-12">
+      <div id="map"></div>
+    </div>
+
+    <legend>Lista</legend>
+    <div class="col-md-12">
+      <a class="btn btn-success" routerLink="/carros/novo" href="/carros/novo">
+        + Novo</a
+      >
+    </div>
+
+    <div class="col-md-12"><br /><app-listar></app-listar></div>
+  </div>
+</fieldset>

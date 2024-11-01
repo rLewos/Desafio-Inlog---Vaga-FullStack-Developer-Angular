@@ -1,73 +1,107 @@
+<br />
 <h2>Cadastro de Veículos</h2>
 
 <form [formGroup]="formulario" (ngSubmit)="salvar()">
-  <div class="form-groups">
-    <label for="txtIdent">Identificador</label>
-    <input
-      type="text"
-      class="form-control"
-      id="txtIdent"
-      formControlName="identificador"
-    />
-  </div>
+  <fieldset>
+    <legend>Novo</legend>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-groups">
+          <label for="txtIdent" class="form-label">Identificador</label>
+          <input
+            type="text"
+            class="form-control"
+            id="txtIdent"
+            formControlName="identificador"
+          />
+        </div>
+      </div>
 
-  <div class="form-groups">
-    <label for="txtPlaca">Placa</label>
-    <input
-      type="text"
-      class="form-control"
-      id="txtPlaca"
-      formControlName="placa"
-    />
-  </div>
+      <div class="col-md-2">
+        <div class="form-groups">
+          <label for="txtPlaca" class="form-label">Placa</label>
+          <input
+            type="text"
+            class="form-control"
+            id="txtPlaca"
+            formControlName="placa"
+          />
+        </div>
+      </div>
 
-  <div class="form-groups">
-    <label for="txtRastreio">Rastreamento Nº Serial</label>
-    <input
-      type="text"
-      class="form-control"
-      id="txtRastreio"
-      formControlName="numeroRastreio"
-    />
-  </div>
+      <div class="col-md-6">
+        <div class="form-groups">
+          <label for="txtRastreio" class="form-label"
+            >Rastreamento Nº Serial</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="txtRastreio"
+            formControlName="numeroRastreio"
+          />
+        </div>
+      </div>
+    </div>
 
-  <div class="form-groups">
-    <label for="txtLatitude">Latitude</label>
-    <input
-      type="text"
-      class="form-control"
-      id="txtLatitude"
-      formControlName="latitude"
-    />
-  </div>
+    <div class="row">
+      <div class="col-md-2">
+        <div class="form-groups">
+          <label for="txtLatitude" class="form-label">Latitude</label>
+          <input
+            type="text"
+            class="form-control"
+            id="txtLatitude"
+            formControlName="latitude"
+          />
+        </div>
+      </div>
 
-  <div class="form-groups">
-    <label for="txtLongitude">Longitude</label>
-    <input
-      type="text"
-      class="form-control"
-      id="txtLongitude"
-      formControlName="longitude"
-    />
-  </div>
+      <div class="col-md-2">
+        <div class="form-groups">
+          <label for="txtLongitude" class="form-label">Longitude</label>
+          <input
+            type="text"
+            class="form-control"
+            id="txtLongitude"
+            formControlName="longitude"
+          />
+        </div>
+      </div>
 
-  <div class="form-groups">
-    <label for="txtChassi">Chassi</label>
-    <input
-      type="text"
-      class="form-control"
-      id="txtChassi"
-      formControlName="chassi"
-    />
-  </div>
+      <div class="col-md-5">
+        <div class="form-groups">
+          <label for="txtChassi" class="form-label">Chassi</label>
+          <input
+            type="text"
+            class="form-control"
+            id="txtChassi"
+            formControlName="chassi"
+          />
+        </div>
+      </div>
 
-  <div class="form-groups">
-    <label for="txtCor">Cor</label>
-    <input type="text" class="form-control" id="txtCor" formControlName="cor" />
-  </div>
+      <div class="col-md-3">
+        <div class="form-groups">
+          <label for="txtCor" class="form-label">Cor</label>
+          <input
+            type="text"
+            class="form-control"
+            id="txtCor"
+            formControlName="cor"
+          />
+        </div>
+      </div>
+    </div>
+    <br />
 
-  <button type="submit" class="btn btn-primary">Salvar</button>
-  <button type="reset" class="btn btn-danger">Limpar</button>
+    <div class="row">
+      <div class="col-md-12">
+        <button type="submit" class="btn btn-primary">Salvar</button>
+        <button type="reset" class="btn btn-danger">Limpar</button>
+      </div>
+    </div>
+  </fieldset>
 </form>
 
 <p>Form: {{ formulario.status }}</p>
