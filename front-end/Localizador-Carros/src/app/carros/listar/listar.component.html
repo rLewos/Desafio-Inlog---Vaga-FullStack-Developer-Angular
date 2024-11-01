@@ -11,7 +11,10 @@
   </thead>
   <tbody>
     @for(carro of carrosList; track carro.codigo){
-    <tr>
+    <tr
+      style="cursor: pointer"
+      (click)="selecionarAlvo(carro.codigo, carro.latitude, carro.longitude)"
+    >
       <td>{{ carro.identificador }}</td>
       <td>{{ carro.placa }}</td>
       <td>{{ carro.numeroRastreio }}</td>

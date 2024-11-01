@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CarrosService } from '../../../services/carros.service';
 
 @Component({
@@ -10,6 +10,8 @@ import { CarrosService } from '../../../services/carros.service';
 })
 export class ListarComponent {
   carrosList: any = [];
+  codigo: number = 0;
+  @Output() emitLinhaSelecionada = new EventEmitter();
 
   constructor(private carrosService: CarrosService) {}
 
@@ -23,6 +25,14 @@ export class ListarComponent {
     this.carrosService.getCarrosListv2().subscribe((response) => {
       console.log(response);
       this.carrosList = response;
+    });
+  }
+
+  selecionarAlvo(codigoCarro: number, latitude: number, longitude: number) {
+    this.emitLinhaSelecionada.emit({
+      codigo: codigoCarro,
+      latitude: latitude,
+      longitude: longitude,
     });
   }
 }

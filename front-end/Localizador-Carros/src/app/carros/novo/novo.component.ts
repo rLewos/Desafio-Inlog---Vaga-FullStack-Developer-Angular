@@ -31,6 +31,8 @@ export class NovoComponent {
     console.log(this.formulario);
     if (this.formulario.valid) {
       this.carrosService.saveCarro(this.formulario.value);
+    } else {
+      alert('Há campos que não foram preenchidos');
     }
   }
 }

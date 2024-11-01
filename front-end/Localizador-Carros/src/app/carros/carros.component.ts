@@ -41,14 +41,26 @@ export class CarrosComponent {
       console.log(res);
 
       res.forEach((e) => {
-        this.addMarcadorMapa(e.latitude, e.longitude);
+        this.addMarcadorMapa(e.identificador, e.latitude, e.longitude);
       });
     });
   }
 
-  addMarcadorMapa(cLongitude: string, cLatitude: string) {
+  addMarcadorMapa(nomeMarcador: string, cLongitude: string, cLatitude: string) {
     const longitude = parseFloat(cLongitude);
     const latitude = parseFloat(cLatitude);
-    L.marker([longitude, latitude]).addTo(this.map);
+
+    let marker = L.marker([longitude, latitude]).addTo(this.map);
+    marker.bindPopup(`<b>${nomeMarcador}</b>`);
+
+    marker.on('click', function (element) {
+      console.log(element);
+      marker.openPopup();
+    });
+  }
+
+  selecionarMarcador(codigoCarro: any) {
+    this.map.setView([codigoCarro?.latitude, codigoCarro.longitude], 17);
+    console.log(this.map);
   }
 }

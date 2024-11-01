@@ -1,8 +1,9 @@
 <br />
-<h1>Localização de Veiculos</h1>
-
+<h2>Localização de Veiculos</h2>
+<hr />
 <fieldset>
   <legend>Mapa</legend>
+
   <div class="row">
     <div class="col-md-12">
       <div id="map"></div>
@@ -15,6 +16,10 @@
       >
     </div>
 
-    <div class="col-md-12"><br /><app-listar></app-listar></div>
+    <div class="col-md-12">
+      <br /><app-listar
+        (emitLinhaSelecionada)="selecionarMarcador($event)"
+      ></app-listar>
+    </div>
   </div>
 </fieldset>
